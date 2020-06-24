@@ -1,4 +1,4 @@
-# project-template
+# project-template ![](https://github.com/moskomule/project-template/workflows/test/badge.svg)
 
 ## Requirements
 

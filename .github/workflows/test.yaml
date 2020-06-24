@@ -22,7 +22,7 @@ jobs:
 
             - name: run yamllint
               run: |
-                  yamllint
+                  yamllint .
 
             - name: run pytest
               run: |
