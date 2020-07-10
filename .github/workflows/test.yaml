@@ -20,6 +20,7 @@ jobs:
             - name: install dependencies
               run: |
                   pip install -U pip pytest yamllint
+                  pip install -U -r tests/requirements.txt
 
             - name: run yamllint
               run: |
