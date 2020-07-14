@@ -1,4 +1,7 @@
- # write custom dependencies **above**
- -f https://download.pytorch.org/whl/torch_stable.html 
+# git+https://github.com/moskomule/homura#egg=homura
+
+# write custom dependencies **above**
+
+-f https://download.pytorch.org/whl/torch_stable.html 
 torch==1.5.1+cpu
 torchvision==0.6.1+cpu
