@@ -8,7 +8,6 @@ Template for my research projects using Python
 notebooks               # Jupyter notebooks
 script                  # Shell scripts for running experiments
 src                     # Root of main codes
-  - config              # hydra config path
 tests                   
   - requirements.txt    # Requirements for pytest
 README.md               # This file
@@ -23,7 +22,7 @@ conda create -n ${PROJECT_NAME} python=...
 conda activate ${PROJECT_NAME}
 ```
 
-### For unit test
+### For unit tests
 
 ```
 pip install pytest
@@ -37,6 +36,13 @@ python train.py ...
 ```
 
 ## Evaluation
+
+...
+
 ## Results
+
+...
+
 ## Pre-training Models
 
+...
