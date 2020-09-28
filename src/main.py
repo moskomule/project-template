@@ -1,6 +1,5 @@
 import dataclasses
 
-import hydra
 import torch
 
 
@@ -16,7 +15,6 @@ def _main(cfg: BaseConfig):
     pass
 
 
-@hydra.main('config/config.yaml')
 def main(cfg: BaseConfig):
     if cfg.verb:
         print(cfg)

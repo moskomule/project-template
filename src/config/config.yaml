@@ -1,6 +1,0 @@
-defaults:
-    - hydra/job_logging: disabled
-
-seed: 1
-gpu_id: 0
-verb: false
