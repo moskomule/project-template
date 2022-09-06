@@ -1,31 +1,32 @@
-name: test
+name: Tests
 
-on: [push]
+on: [ "push" ]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, 'initial commit')"
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'initial commit')"
 
-        strategy:
-            matrix:
-                python: ['3.8']
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
 
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
-              with:
-                  python-version: ${{ matrix.python }}
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
 
-            - name: install dependencies
-              run: |
-                  pip install -U pip pytest yamllint
-                  pip install -U -r tests/requirements.txt
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-            - name: run yamllint
-              run: |
-                  yamllint .
+      - name: install dependencies
+        run: |
+          pip install hatch
+          hatch env create tests
 
-            - name: run pytest
-              run: |
-                  pytest
+      - name: test
+        run: |
+          hatch run tests:pytest

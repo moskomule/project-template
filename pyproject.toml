@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "project_template"
+description = ''
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [
+    { name = "", email = "" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+    "torch>=1.12.1",
+    "torchvision>=0.13.1",
+    "chika",
+    "rich",
+    "jupyterlab"
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "src/__about__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+    "/docs",
+    "/tests"
+]
+
+[tool.hatch.build.targets.wheel]
+
+[tool.hatch.envs.tests]
+extra-dependencies = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.hatch.envs.tests.scripts]
+
+[tool.hatch.envs.docs]
+extra-dependencies = [
+    "mkdocs-material",
+    "mkdocstrings[python]"
+]
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+    "src/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "no cov",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.black]
+line-length = 120
