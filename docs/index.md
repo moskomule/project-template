@@ -1,3 +1,3 @@
 # Project-Template
 
-::: utils.timeit
+::: src.utils.timeit
